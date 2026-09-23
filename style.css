@@ -1,0 +1,604 @@
+/* ==========================================================================
+   Gala Illuminés — Thème sobre, noir profond & or discret
+   ========================================================================== */
+@font-face {
+    font-family: 'RaconteurNF';
+    src: url('fonts/RaconteurNF.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --bg: #0A0A0A;
+    --bg-alt: #101010;
+    --gold: #B08D3E;
+    --gold-pale: #D9C7A0;
+    --ink: #F2F0EA;
+    --ink-muted: #9A968E;
+    --line: rgba(242, 240, 234, 0.10);
+    --line-gold: rgba(176, 141, 62, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+.font-cinzel {
+    font-family: 'RaconteurNF', serif;
+}
+
+.text-gold {
+    color: var(--gold) !important;
+}
+
+.text-light-muted {
+    color: var(--ink-muted);
+}
+
+.navbar-logo {
+    height: 30px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* ---------- Navbar ---------- */
+.modern-navbar {
+    background: rgba(10, 10, 10, 0.92);
+    border-bottom: 1px solid var(--line);
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+}
+
+.modern-navbar .navbar-brand {
+    font-family: 'RaconteurNF', serif;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    font-size: 1.05rem;
+}
+
+.modern-navbar .navbar-brand i {
+    font-size: 0.9em;
+}
+
+.modern-navbar .nav-link {
+    color: var(--ink) !important;
+    font-weight: 400;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    position: relative;
+    padding-bottom: 4px !important;
+}
+
+.modern-navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.modern-navbar .nav-link:hover,
+.modern-navbar .nav-link.active {
+    color: var(--gold) !important;
+}
+
+.modern-navbar .nav-link:hover::after,
+.modern-navbar .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.dropdown-menu-dark {
+    background-color: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 0;
+}
+
+.dropdown-menu-dark .dropdown-item {
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+    background-color: transparent;
+    color: var(--gold);
+}
+
+/* ---------- Buttons ---------- */
+.btn-gold {
+    background: transparent;
+    color: var(--gold);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    border: 1px solid var(--gold);
+    border-radius: 0 !important;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-gold:hover {
+    background: var(--gold);
+    color: #0A0A0A;
+}
+
+.btn-outline-light {
+    border: 1px solid rgba(242, 240, 234, 0.35);
+    border-radius: 0 !important;
+    letter-spacing: 0.06em;
+    font-weight: 400;
+    transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-outline-light:hover {
+    background: transparent;
+    border-color: var(--ink);
+    color: var(--ink);
+}
+
+/* ---------- Hero ---------- */
+.hero-section {
+    min-height: 88vh;
+    background: linear-gradient(rgba(10, 10, 10, 0.55), rgba(10, 10, 10, 0.92)), url('Images/Centre_des_congres.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-pale);
+    margin-bottom: 1.5rem;
+}
+
+.hero-rule {
+    width: 56px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 1.75rem;
+}
+
+.max-w-700 {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1.font-cinzel {
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+/* ---------- Info banner ---------- */
+.info-banner {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.info-stat {
+    text-align: center;
+}
+
+.info-stat .num {
+    font-family: 'RaconteurNF', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--gold);
+    display: block;
+}
+
+.info-stat .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+}
+
+.info-divider {
+    width: 1px;
+    background: var(--line);
+    align-self: stretch;
+}
+
+/* ---------- Sections ---------- */
+.py-6 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin-bottom: 0.9rem;
+}
+
+main h2.font-cinzel {
+    font-weight: 500;
+}
+
+.hero-image-frame {
+    border: 1px solid var(--line-gold);
+}
+
+/* ---------- Programme (sequential list, hairline dividers) ---------- */
+.programme-list {
+    border-top: 1px solid var(--line);
+}
+
+.programme-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2.25rem 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding-left 0.3s ease;
+}
+
+.programme-item:hover {
+    padding-left: 0.5rem;
+}
+
+.programme-index {
+    font-family: 'RaconteurNF', serif;
+    font-size: 0.95rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    min-width: 2.5rem;
+    padding-top: 0.15rem;
+}
+
+.programme-content h4 {
+    font-family: 'RaconteurNF', serif;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+.programme-content p {
+    color: var(--ink-muted);
+    margin-bottom: 0;
+    max-width: 55ch;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    border-top: 1px solid var(--line);
+    background-color: var(--bg);
+}
+
+footer h5 {
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.social-btn {
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink-muted);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.social-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* ---------- Page header (pages secondaires) ---------- */
+.page-header {
+    padding-top: 9.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.page-header h1.font-cinzel {
+    font-weight: 500;
+}
+
+/* ---------- Menu (carte du dîner) ---------- */
+.menu-card {
+    max-width: 540px;
+    margin: 0 auto;
+    text-align: center;
+}
+ 
+.menu-course {
+    font-family: 'RaconteurNF', serif;
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.85rem;
+}
+ 
+.menu-course:first-child {
+    margin-top: 0;
+}
+ 
+.menu-item {
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+}
+ 
+.menu-alt {
+    color: var(--ink-muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    margin: 0.5rem 0;
+}
+ 
+.menu-note {
+    color: var(--ink-muted);
+    font-size: 0.82rem;
+    font-style: italic;
+    margin-bottom: 0.3rem;
+}
+ 
+/* ---------- Footnote ---------- */
+.footnote {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    margin-top: 2.5rem;
+}
+ 
+.mark {
+    color: var(--gold);
+    background-color: var(--bg);
+}
+
+/* ---------- Partenaires ---------- */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+}
+
+.partner-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.75rem 1.25rem;
+    border: 1px solid var(--line);
+    background: rgba(242, 240, 234, 0.03);
+    transition: border-color 0.25s ease;
+    text-align: center;
+}
+
+.partner-card:hover {
+    border-color: var(--line-gold);
+}
+
+.partner-card img {
+    max-height: 56px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.partner-name {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+}
+
+/* ---------- Hôtels partenaires ---------- */
+.hotel-block {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.hotel-block:first-of-type {
+    padding-top: 0;
+}
+
+.hotel-block:last-of-type {
+    border-bottom: none;
+}
+
+.hotel-block h2 {
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 1.1rem;
+}
+
+.dash-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.25rem;
+}
+
+.dash-list li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink-muted);
+}
+
+.dash-list li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+}
+
+.dash-list li:last-child {
+    margin-bottom: 0;
+}
+
+.hotel-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.92rem;
+}
+
+.hotel-meta-label {
+    color: var(--gold);
+    min-width: 110px;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    padding-top: 0.15rem;
+}
+
+.hotel-meta-value {
+    color: var(--ink-muted);
+    flex: 1;
+    min-width: 220px;
+}
+
+.hotel-meta-value a {
+    color: var(--gold-pale);
+}
+
+/* ---------- Carte (Leaflet) ---------- */
+.map-frame {
+    border: 1px solid var(--line-gold);
+    height: 440px;
+    overflow: hidden;
+}
+
+#mapid {
+    height: 100%;
+    width: 100%;
+}
+
+.map-frame .leaflet-tile-pane {
+    filter: grayscale(45%) invert(93%) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: var(--bg-alt) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--line-gold);
+    border-radius: 0;
+    box-shadow: none !important;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 0;
+}
+
+.leaflet-control-zoom a {
+    background: var(--bg-alt) !important;
+    color: var(--gold) !important;
+    border-color: var(--line) !important;
+}
+
+.leaflet-control-attribution {
+    background: rgba(10, 10, 10, 0.75) !important;
+    color: var(--ink-muted) !important;
+}
+
+.leaflet-control-attribution a {
+    color: var(--gold-pale) !important;
+}
+
+/* ---------- Line-up (Soirée) ---------- */
+.lineup-list {
+    margin-top: 0.75rem;
+}
+
+.lineup-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.lineup-row:last-child {
+    border-bottom: none;
+}
+
+.lineup-time {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 0.82rem;
+    min-width: 140px;
+}
+
+.lineup-artist {
+    color: var(--ink-muted);
+}
+
+/* ---------- Billetterie ---------- */
+.ticket-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.ticket-card {
+    border: 1px solid var(--line);
+    padding: 2.25rem 1.75rem;
+    text-align: center;
+    transition: border-color 0.25s ease;
+}
+
+.ticket-card:hover {
+    border-color: var(--line-gold);
+}
+
+.ticket-name {
+    font-family: 'Cinzel', serif;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.ticket-price {
+    display: block;
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+}
+
+.ticket-card .dash-list {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767px) {
+    .programme-item {
+        gap: 1.25rem;
+    }
+    .info-divider {
+        display: none;
+    }
+}
