@@ -1,0 +1,10 @@
+# Production stack. The deploy workflow copies this file to the deploy directory on the host and
+# runs `docker compose pull && up -d` there: the image is built and pushed by GitHub, never on the
+# shared host.
+services:
+  gala:
+    image: ${REGISTRY:-ghcr.io}/${IMAGE_PREFIX:-emse-students/gala-website}:${TAG:-latest}
+    restart: always
+    ports:
+      # Loopback only: the host's own nginx is the one way in.
+      - '127.0.0.1:${GALA_HOST_PORT:-3002}:8080'
