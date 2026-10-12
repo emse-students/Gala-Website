@@ -3,7 +3,7 @@
 # shared host.
 services:
   gala:
-    image: ${REGISTRY:-ghcr.io}/${IMAGE_PREFIX:-emse-students/gala-website}:${TAG:-latest}
+    image: ${IMAGE:?IMAGE is set by the deploy workflow}:latest
     restart: always
     ports:
       # Loopback only: the host's own nginx is the one way in.

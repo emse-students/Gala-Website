@@ -46,11 +46,16 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # The image is named after the repository, never spelled out a second time. GHCR wants lower case.
+      - name: The image name
+        id: image
+        run: echo "name=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+
       - name: Extract metadata
         id: meta
         uses: docker/metadata-action@v6
         with:
-          images: ghcr.io/emse-students/gala-website
+          images: ${{ steps.image.outputs.name }}
           # `latest` is what the host pulls; the sha tag traces a running container to a tree.
           tags: |
             type=raw,value=latest
@@ -81,6 +86,9 @@ jobs:
       - name: Log in to GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
+      - name: The image name
+        run: echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
+
       - name: Sync the compose file
         run: |
           mkdir -p "$DEPLOY_DIR"
@@ -92,14 +100,16 @@ jobs:
       - name: Deploy
         run: $COMPOSE up -d --remove-orphans
 
+      # The container's own HEALTHCHECK is the verdict, so no port is repeated here.
       - name: Health check
         run: |
+          cid=$($COMPOSE ps -q gala)
           for i in $(seq 1 20); do
-            code=$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3002/healthz || true)
-            if [ "$code" = "200" ]; then echo "Gala healthy"; exit 0; fi
+            status=$(docker inspect --format '{{.State.Health.Status}}' "$cid" || true)
+            if [ "$status" = "healthy" ]; then echo "Gala healthy"; exit 0; fi
             sleep 3
           done
-          echo "::error::Health check failed after deploy"
+          echo "::error::Container is '$status' after deploy"
           $COMPOSE logs --tail 50
           exit 1
 
