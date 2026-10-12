@@ -1,0 +1,48 @@
+# Checks a pull request before it can reach `main`: the image builds and the site answers.
+# Nothing is deployed from here; `deploy.yml` does that on a push to `main`.
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build the image
+        run: docker build -t gala-website:ci .
+
+      # Every page is asked for, not just the home page: a page missing from the Dockerfile's COPY
+      # lines is a 404 only a visitor would otherwise find.
+      - name: Every page answers
+        run: |
+          set -euo pipefail
+          docker run -d --name gala -p 127.0.0.1:8080:8080 gala-website:ci
+          for i in $(seq 1 20); do
+            [ "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/healthz || true)" = 200 ] && break
+            sleep 1
+          done
+          for page in $(ls *.html | sed 's/\.html$//'); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:8080/$page")
+            echo "/$page -> $code"
+            [ "$code" = 200 ] || { echo "::error::/$page answered $code"; exit 1; }
+          done
+          for file in style.css fonts/RaconteurNF.ttf; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:8080/$file")
+            echo "/$file -> $code"
+            [ "$code" = 200 ] || { echo "::error::/$file answered $code"; exit 1; }
+          done
+          # Every local image the pages name must exist in the image.
+          grep -ohE 'src="images/[^"]+"' *.html | sort -u | sed -E 's/src="([^"]+)"/\1/' | while read -r img; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:8080/$img")
+            [ "$code" = 200 ] || { echo "::error::/$img answered $code"; exit 1; }
+          done
