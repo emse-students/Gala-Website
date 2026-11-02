@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billetterie — Gala Illumines 2026 - EMSE</title>
-    <link rel="icon" type="image/png" href="images/logo_gala.png" />
+    <title>Navettes — Gala Illumines 2027 - EMSE</title>
+    <link rel="icon" type="image/png" href="../images/logo_gala.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top modern-navbar">
         <div class="container">
-            <a class="navbar-brand text-gold" href="index.html">
-                <img src="images/logo_gala.png" alt="Gala Illumines" class="navbar-logo me-2">GALA ILLUMINES
+            <a class="navbar-brand text-gold" href="../index.html">
+                <img src="../images/logo_gala.png" alt="Gala Illumines" class="navbar-logo me-2">GALA ILLUMINES
             </a>
             <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fa-solid fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-lg-center gap-lg-4">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="qui_sommes_nous.html">Qui sommes-nous ?</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Programme</a>
@@ -34,10 +33,10 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Hôtels &amp; Accès</a>
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Hôtels &amp; Accès</a>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="hotels_partenaires.html">Hotels partenaires</a></li>
-                            <li><a class="dropdown-item" href="navettes.html">Navette</a></li>
+                            <li><a class="dropdown-item active" href="navettes.html">Navette</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="partenaires.html">Partenaires</a></li>
@@ -52,15 +51,11 @@
     <!-- Page Header -->
     <header class="page-header text-center">
         <div class="container">
-            <span class="eyebrow">Réservation</span>
-            <h1 class="font-cinzel text-white display-5 mb-3">Billetterie</h1>
-            <p class="text-light-muted mx-auto mb-4" style="max-width: 640px;">
-                Les places pour le Gala Illuminés 2026 se réservent sur notre plateforme de billetterie officielle. Choisissez la formule qui vous convient ci-dessous, puis finalisez votre réservation en ligne.
+            <span class="eyebrow">Retour de soirée</span>
+            <h1 class="font-cinzel text-white display-5 mb-3">Navettes</h1>
+            <p class="text-light-muted mx-auto mb-0" style="max-width: 640px;">
+                Pour que la nuit se termine en toute sérénité, des navettes vous ramènent après la soirée depuis le Centre de Congrès vers les principaux points de la ville.
             </p>
-            <!-- TODO : remplacer ce lien par l'URL réelle de la billetterie (HelloAsso, Weezevent, Billetweb...) -->
-            <a href="https://www.exemple-billetterie.fr/gala-illumines-2026" target="_blank" rel="noopener" class="btn btn-gold px-5 py-3">
-                Accéder à la billetterie <i class="fa-solid fa-arrow-up-right-from-square ms-2"></i>
-            </a>
         </div>
     </header>
 
@@ -68,46 +63,55 @@
     <main class="py-6">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-10">
+                <div class="col-lg-9">
 
-                    <div class="ticket-grid">
-                        <div class="ticket-card">
-                            <span class="ticket-name">Pass Complet</span>
-                            <span class="ticket-price">Tarif sur la billetterie</span>
-                            <ul class="dash-list">
-                                <li>Dîner gastronomique (19h — 21h)</li>
-                                <li>Spectacle &amp; défilé</li>
-                                <li>Soirée &amp; DJ sets (23h — 4h)</li>
-                            </ul>
+                    <!-- Infos générales -->
+                    <div class="mb-5">
+                        <span class="eyebrow">Informations générales</span>
+                        <!-- TODO : compléter les informations réelles -->
+                        <div class="hotel-meta-row">
+                            <span class="hotel-meta-label">Départ</span>
+                            <span class="hotel-meta-value">Devant le Centre de Congrès de Saint-Étienne (Manufrance) — emplacement exact à confirmer.</span>
                         </div>
-                        <div class="ticket-card">
-                            <span class="ticket-name">Dîner seul</span>
-                            <span class="ticket-price">Tarif sur la billetterie</span>
-                            <ul class="dash-list">
-                                <li>Dîner gastronomique (19h — 21h)</li>
-                                <li>Accès au cocktail de clôture des diplômes</li>
-                            </ul>
-                        </div>
-                        <div class="ticket-card">
-                            <span class="ticket-name">Soirée seule</span>
-                            <span class="ticket-price">Tarif sur la billetterie</span>
-                            <ul class="dash-list">
-                                <li>Accès aux trois salles (Pop/Electro, Jazz, Activités Casino)</li>
-                                <li>De 23h à 4h du matin</li>
-                            </ul>
+                        <div class="hotel-meta-row">
+                            <span class="hotel-meta-label">Horaires</span>
+                            <span class="hotel-meta-value">À partir de XXhXX, jusqu'à la fin de la soirée (4h) — à confirmer.</span>
                         </div>
                     </div>
 
-                    <p class="text-light-muted text-center mb-2">
-                        Nous vous rappelons que la vente des places sera clôturée le 4 mai 2026. Pensez à préciser en commentaire de votre réservation d'éventuels régimes et/ou allergies alimentaires.
+                    <!-- Horaires et destinations -->
+                    <span class="eyebrow">Horaires &amp; destinations</span>
+                    <!-- TODO : remplacer les horaires et destinations par les vrais -->
+                    <div class="programme-list">
+                        <div class="lineup-list mt-0">
+                            <div class="lineup-row">
+                                <span class="lineup-time">XXhXX</span>
+                                <span class="lineup-artist">Gare de Châteaucreux</span>
+                            </div>
+                            <div class="lineup-row">
+                                <span class="lineup-time">XXhXX</span>
+                                <span class="lineup-artist">Hôtel Kyriad · Hôtel CityLoft · Hôtel Astoria</span>
+                            </div>
+                            <div class="lineup-row">
+                                <span class="lineup-time">XXhXX</span>
+                                <span class="lineup-artist">École des Mines (158 cours Fauriel)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Infos pratiques -->
+                    <div class="mt-5">
+                        <span class="eyebrow">Bon à savoir</span>
+                        <ul class="dash-list">
+                            <li>Prévoyez d'arriver quelques minutes avant l'heure de départ indiquée.</li>
+                            <li>Les places à bord sont limitées : les navettes partent dès qu'elles sont pleines.</li>
+                            <li>Pensez à vous munir de votre billet de soirée.</li>
+                        </ul>
+                    </div>
+
+                    <p class="text-light-muted mt-5 text-center">
+                        Vous cherchez un hébergement ? Découvrez nos <a href="hotels_partenaires.html" class="text-gold text-decoration-none">hôtels partenaires</a>.
                     </p>
-
-                    <div class="text-center mt-4">
-                        <!-- TODO : même lien que ci-dessus, à remplacer -->
-                        <a href="https://www.exemple-billetterie.fr/gala-illumines-2026" target="_blank" rel="noopener" class="btn btn-gold px-5 py-3">
-                            Réserver mes places <i class="fa-solid fa-arrow-up-right-from-square ms-2"></i>
-                        </a>
-                    </div>
 
                 </div>
             </div>
@@ -119,7 +123,7 @@
         <div class="container">
             <div class="row align-items-center g-4">
                 <div class="col-md-6 text-center text-md-start">
-                    <h5 class="font-cinzel text-gold mb-2">Gala Illumines 2026</h5>
+                    <h5 class="font-cinzel text-gold mb-2">Gala Illumines 2027</h5>
                     <p class="text-light-muted small mb-0">École des Mines de Saint-Étienne — Tous droits réservés</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
