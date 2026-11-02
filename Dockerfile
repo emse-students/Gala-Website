@@ -15,7 +15,8 @@ RUN find images -name '*.png' -print0 | xargs -0 -n1 -P4 oxipng --opt 4 --strip 
 FROM nginxinc/nginx-unprivileged:1.29-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY security-headers.conf /etc/nginx/security-headers.conf
-COPY *.html style.css /usr/share/nginx/html/
+COPY index.html style.css /usr/share/nginx/html/
+COPY HTML /usr/share/nginx/html/HTML
 COPY fonts /usr/share/nginx/html/fonts
 COPY --from=optimize /site/images /usr/share/nginx/html/images
 EXPOSE 8080
